@@ -1,0 +1,15 @@
+#jobFilters {
+	border: 1px solid red;
+	box-sizing: border-box;
+	padding: 20px;
+}
+
+#jobListing {
+	border: 1px solid black;
+	box-sizing: border-box;
+	padding: 20px;
+}
+
+#jobListing:hover {
+	background-color: #f0f0f0;
+}

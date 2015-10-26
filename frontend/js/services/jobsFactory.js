@@ -1,9 +1,9 @@
 angular.module('jetpathApp')
-	.factory('JobsFactory', JobsFactory);
+	.factory('jobsFactory', jobsFactory);
 
-JobsFactory.$inject = ['$resource'];
+jobsFactory.$inject = ['$resource'];
 
-function JobsFactory($resource) {
+function jobsFactory($resource) {
 
 	var JobsResource = $resource('http://localhost:3000/jobs/:id',
 		{id: '@_id'},

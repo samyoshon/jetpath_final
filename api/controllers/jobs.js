@@ -40,9 +40,9 @@ function updateJob(request, response) {
   Job.findById({_id: id}, function(error, job) {
     if(error) response.json({message: 'Could not find job b/c:' + error});
 
-    if(request.body.name) job.name = request.body.name;
-    if(request.body.start) job.start = request.body.start;
-    if(request.body.end) job.end = request.body.end;
+    // if(request.body.name) job.name = request.body.name;
+    // if(request.body.start) job.start = request.body.start;
+    // if(request.body.end) job.end = request.body.end;
 
     job.save(function(error) {
       if(error) response.json({messsage: 'Could not update job b/c:' + error});

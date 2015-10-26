@@ -7,9 +7,10 @@ var app = express();
 
 var mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost:27017/presidents-app');
+mongoose.connect('mongodb://localhost:27017/jetpath');
 
 var routes = require('./config/routes');
+require('./config/seed.js').seed();
 
 app.use(cors());
 
@@ -17,7 +18,6 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-require('./config/seed.js').seed();
 
 app.use(routes);
 

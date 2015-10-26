@@ -5,25 +5,24 @@ var express = require('express'),
 
 var jobsController = require('../controllers/jobs');
 
-// http://127.0.0.1:3000/presidents
 router.route('/jobs')
 
-  //GET all presidents
+  //GET all jobs
   .get(jobsController.getAll)
 
-  //POST a new blob
+  //POST a new job
   .post(jobsController.createJob);
 
 
 router.route('/jobs/:id')
 
-  // GET return specific candy
+  // GET return specific job
   .get(jobsController.getJob)
 
-  // PATCH update existing candy
+  // PATCH update existing job
   .patch(jobsController.updateJob)
 
-  // DELETE remove specific candy from DB
+  // DELETE remove specific job from DB
   .delete(jobsController.removeJob);
 
 
