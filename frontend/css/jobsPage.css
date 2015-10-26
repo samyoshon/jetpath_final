@@ -7,9 +7,13 @@
 #jobListing {
 	border: 1px solid black;
 	box-sizing: border-box;
-	padding: 20px;
+	padding: 25px;
 }
 
 #jobListing:hover {
 	background-color: #f0f0f0;
+}
+
+.buttonsContainer {
+	padding-bottom: 10px;
 }

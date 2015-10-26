@@ -2,7 +2,7 @@ var Job = require('../models/Job');
 
 // GET
 function getAll(request, response) {
-  Job.find(function(error, jobs) {
+  Job.find({}).exec(function(error, jobs) {
     if(error) response.json({message: 'Could not find any job'});
 
     response.json({jobs: jobs});
