@@ -7,8 +7,10 @@ function JobsController ($http, jobsFactory, $timeout){
 	var self = this;
 
 	self.all = [];
+	self.newJob = {};
 
 	self.getJobs = getJobs;
+	self.postJob = postJob;
 	getJobs();
 
 	//SET UP $HTTP REQUEST TO GET ALL JOBS //
@@ -49,6 +51,17 @@ function JobsController ($http, jobsFactory, $timeout){
 		$timeout(function () {
 			self.isTransitioning = false;
 		}, 100);
+	};
+	// END //
+
+	//ALLOW EMPLOYERS TO POST JOBS //
+	function postJob() {
+		$http.post('http://localhost:3000/jobs', self.newJob)
+			.then(function(response){
+			console.log(response);
+			getJobs();
+		});
+		self.newJob = {};
 	};
 	// END //
 

@@ -1,1 +1,21 @@
 <h1>Post a job</h1>
+
+<!-- Form for job posting -->
+<form ng-submit="jobs.postJob()">
+    <label for='job-company-name'>Company Name: <input type="text" id='job-company-name' ng-model="jobs.newJob.name"/></br>
+    <label for=''>Job Title: <input type="text" id='' ng-model="jobs.newJob.title"/></br>
+    <label for=''>Job Description: <input type="textarea" id='' ng-model="jobs.newJob.description"/></br>
+    <label for=''>Country: <input type="text" id='' ng-model="jobs.newJob.country"/></br>
+    <label for=''>Address: <input type="text" id='' ng-model="jobs.newJob.address"/></br>
+    <label for=''>Compensation: <input type="text" id='' ng-model="jobs.newJob.compensation.low"> - <input type="text" id='' ng-model="jobs.newJob.compensation.high"> 
+    <select name="currency" >
+    	<option id='' ng-repeat="job in jobs.all" value="jobs.newJob.country">{{job.country}}</option>
+    </select>	
+    </br>
+    <label for=''>Benefits: <input type="text" id='' ng-model="jobs.newJob.benefits"/></br>
+    <label for=''>Qualifications: <input type="text" id='' ng-model="jobs.newJob.qualifications"/></br>
+    <label for=''>Preferences: <input type="text" id='' ng-model="jobs.newJob.preferences"/></br>
+    <label for=''>Additional Info: <input type="text" id='' ng-model="jobs.newJob.additional"/></br>
+
+    <input type="submit" value="Post Job"/>
+</form>

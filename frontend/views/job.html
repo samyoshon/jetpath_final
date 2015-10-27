@@ -15,23 +15,27 @@
 	    <input type="search" class="form-control" ng-model="vm.search" placeholder="search...">
 	  </div>
 	</div>
-	<!-- End -->
+<!-- End -->
 
 	<div ng-repeat='job in jobs.all | filter: jobs.selectedCountry' ng-click='showDetails = !showDetails' class='row' id='jobListing'>
 
-	<!-- Hidden Apply Buttons -->
+<!-- Hidden Apply Buttons -->
 	  <div ng-show='showDetails' class='buttonsContainer'>
 	    <button type='button' ng-submit='jobApply()' class='btn btn-primary'>Apply</button>
 	    <button type='button' ng-submit='jobSave()' class='btn btn-default'>Save Job</button>
 	  </div>
-	<!-- End -->
+<!-- End -->
+
+<!-- Quick Job View -->
 
 	  <h4>{{job.name}}</h4>
 	  <div>{{job.title}}</div>
 	  <div>{{job.description}}</div>
 	  <div>{{job.country}}</div>
 
-	<!-- Hidden Addt'l Info Section -->
+<!-- End -->
+
+<!-- Hidden Addt'l Info Section -->
 	  <div ng-show='showDetails'>
 	    <div>{{job.compensation.low}}</div>
 	    <div>{{job.compensation.high}}</div>
@@ -51,7 +55,8 @@
 	    <div>{{job.additional}}</div>
 
 	  </div>
-	<!-- End -->
+<!-- End -->
+
 	</div>
 
 </div>

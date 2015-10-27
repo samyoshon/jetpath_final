@@ -5,6 +5,7 @@ var Job = mongoose.Schema({
 	title: String,
 	description: String,
 	country: String,
+	address: String,
 	compensation: [{
 		low: Number,
 		high: Number
