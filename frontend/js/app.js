@@ -8,16 +8,16 @@ function MainRouter($stateProvider, $urlRouterProvider) {
 
 	$urlRouterProvider.otherwise("/");
 
-	$stateProvider
+		$stateProvider
 		.state('jobs', {
 			url: '/jobs',
 			templateUrl: 'job.html',
-			controller: "jobsController"
+			// controller: "jobsController"
 		})
 		.state('saved', {
 			url: '/jobs/saved',
 			templateUrl: 'saved.html',
-			controller: "jobsController"
+			// controller: "jobsController"
 		})
 		.state('home', {
 			url: '/',
