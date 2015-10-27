@@ -19,11 +19,15 @@
   <h1>Jetpath | {{2+2}}: Indicates Angular Success</h1>
 
   <section ng-controller='JobsController as jobs'>
-    
+
   <nav>
-        <a ui-sref="home" ui-sref-active="active">Home</a>
-        <a ui-sref="jobs" ui-sref-active="active">Jobs</a>
-        <a ui-sref="saved" ui-sref-active="active">Saved Jobs</a>
+        <a ui-sref="home" ui-sref-active="active" ng-click="jobs.transition()">Home</a>
+        <a ui-sref="jobs" ui-sref-active="active" ng-click="jobs.transition()">Jobs</a>
+        <a ui-sref="saved" ui-sref-active="active" ng-click="jobs.transition()">Saved Jobs</a>
+
+        <a ui-sref="new" ui-sref-active="active" ng-click="jobs.transition()">Post Jobs</a>
+        <a ui-sref="candidates" ui-sref-active="active" ng-click="jobs.transition()">See Candidates</a>
+        <a ui-sref="applicants" ui-sref-active="active" ng-click="jobs.transition()">See Applicants</a>
   </nav>
 
 

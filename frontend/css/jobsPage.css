@@ -17,3 +17,14 @@
 .buttonsContainer {
 	padding-bottom: 10px;
 }
+
+.jobBoard {
+	width: 80%;
+	margin: 0 auto;
+	opacity: 1;
+	transition: .5s opacity;
+}
+
+.jobBoard.transition {
+	opacity: 0;
+}

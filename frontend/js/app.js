@@ -22,5 +22,19 @@ function MainRouter($stateProvider, $urlRouterProvider) {
 		.state('home', {
 			url: '/',
 			templateUrl: 'home.html'
+		})
+		.state('new', {
+			url: '/new',
+			templateUrl: 'new.html',
+			// controller: "jobsController"
+		})
+		.state('candidates', {
+			url: '/candidates',
+			templateUrl: 'candidates.html',
+			// controller: "jobsController"
+		})
+		.state('applicants', {
+			url: '/applicants',
+			templateUrl: 'applicants.html'
 		});
 }
