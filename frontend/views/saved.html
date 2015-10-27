@@ -1,0 +1,53 @@
+<!-- Job Filters -->
+<div id='jobFilters' class='row'>
+  <div class='col-xs-4'>
+    <label>Coutry</label>
+    <select class="form-control" ng-model="jobs.selectedCountry" ng-options="country for country in jobs.countries"></select>
+  </div>
+  <div class="col-xs-4">
+    <label>Role</label>
+    <select class="form-control" ng-model="vm.viewBy" ng-options="jobs for jobs in jobs.all"></select>
+  </div>
+  <div class="col-xs-4">
+    <label>Compensation</label>
+    <input type="search" class="form-control" ng-model="vm.search" placeholder="search...">
+  </div>
+</div>
+<!-- End -->
+
+<div ng-repeat='job in jobs.all | filter: jobs.selectedCountry' ng-click='showDetails = !showDetails' class='row' id='jobListing'>
+
+<!-- Hidden Apply Buttons -->
+  <div ng-show='showDetails' class='buttonsContainer'>
+    <button type='button' ng-submit='jobApply()' class='btn btn-primary'>Apply</button>
+    <button type='button' ng-submit='jobSave()' class='btn btn-default'>Save Job</button>
+  </div>
+<!-- End -->
+
+  <h4>{{job.name}}</h4>
+  <div>{{job.title}}</div>
+  <div>{{job.description}}</div>
+  <div>{{job.country}}</div>
+
+<!-- Hidden Addt'l Info Section -->
+  <div ng-show='showDetails'>
+    <div>{{job.compensation.low}}</div>
+    <div>{{job.compensation.high}}</div>
+
+    <ul>
+      <li ng-repeat='benefit in job.benefits'>{{benefit}}</li>
+    </ul>
+
+    <ul>
+      <li ng-repeat='qualification in job.qualifications'>{{qualification}}</li>
+    </ul>
+
+    <ul>
+      <li ng-repeat='preference in job.preferences'>{{preference}}</li>
+    </ul>
+
+    <div>{{job.additional}}</div>
+
+  </div>
+<!-- End -->
+</div>

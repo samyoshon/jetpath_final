@@ -12,7 +12,8 @@ var Job = mongoose.Schema({
 	benefits: [],
 	qualifications: [],
 	preferences: [],
-	additional: String
+	additional: String,
+	applicant: []
 });
 
 module.exports = mongoose.model('Job', Job);
