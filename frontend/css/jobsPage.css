@@ -1,17 +1,18 @@
 #jobFilters {
-	border: 1px solid black;
+	border: 1px solid gray;
 	box-sizing: border-box;
 	padding: 20px;
 }
 
 #jobListing {
-	border: 1px solid black;
+	border: 1px solid gray;
 	box-sizing: border-box;
 	padding: 25px;
 }
 
 #jobListing:hover {
-	background-color: #f0f0f0;
+	border-bottom: 5px solid #2da2fc;
+	background-color: #f7f7f7;
 }
 
 .buttonsContainer {
@@ -27,4 +28,13 @@
 
 .jobBoard.transition {
 	opacity: 0;
+}
+
+.hero-banner {
+	width: 100%;
+}
+
+.jobDetails {
+	border-bottom: 2px dotted gray;
+	color: red;
 }

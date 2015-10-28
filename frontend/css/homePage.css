@@ -1,0 +1,17 @@
+.navbar {
+	margin-bottom: 0px !important;
+}
+
+.hero {
+	background-size: cover;
+	position: relative;
+	width: 100%;
+}
+
+.hero-text {
+	position: absolute;
+	color: red;
+	z-index: 1;
+	top: 0;
+	left: 0;
+}
