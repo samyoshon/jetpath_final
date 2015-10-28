@@ -1,4 +1,5 @@
 var Job = require('../models/Job.js');
+var User = require('../models/User.js');
 
 exports.seed = function seedJob() {
 

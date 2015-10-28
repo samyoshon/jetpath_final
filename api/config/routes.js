@@ -4,6 +4,7 @@ var express = require('express'),
     methodOverride = require('method-override'); //used to manipulate POST
 
 var jobsController = require('../controllers/jobs');
+var usersController = require('../controllers/users');
 
 router.route('/jobs')
 
@@ -25,5 +26,23 @@ router.route('/jobs/:id')
   // DELETE remove specific job from DB
   .delete(jobsController.removeJob);
 
+router.route('/users')
+
+  //GET all users
+  .get(usersController.getAll)
+
+  //CREATE a new user
+  .post(usersController.createUser);
+
+router.route('/users/:id')
+
+  // GET return specific user
+  .get(usersController.getUser)
+
+  // PATCH update existing user
+  .patch(usersController.updateUser)
+
+  // DELETE remove specific user from DB
+  .delete(usersController.removeUser);
 
 module.exports = router;
