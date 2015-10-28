@@ -1,4 +1,5 @@
 var User = require('../models/User');
+var Job = require('../models/Job');
 
 // GET
 function getAll(request, response) {
@@ -62,10 +63,48 @@ function removeUser(request, response) {
   });
 }
 
+// POST
+function createJob(request, response) {
+  console.log('in POST');
+  console.log('body:',request.body);
+
+  var job = new Job(request.body);
+
+  job.save(function(error) {
+    if(error) response.json({messsage: 'Could not ceate job b/c:' + error});
+
+    response.json({job: job});
+  });
+}
+
+function registerUser(req, res) {
+
+  var user = new User({email: req.body.email, password: req.body.password});
+
+  user.save(function() {
+        req.session.email = user.email;
+  });
+}
+
+// function loginUser(request, response) {
+//   res.render('pages/login.ejs');
+// }
+
+function loginUser(req, res) {
+  User.findOne({email: req.body.email})
+    .then(function(user) {
+       user.comparePasswordAsync(req.body.password).then(function(isMatch) {
+          req.session.email = user.email;
+       });
+    });
+}
+
 module.exports = {
   getAll: getAll,
   createUser: createUser,
   getUser: getUser,
   updateUser: updateUser,
-  removeUser: removeUser
+  removeUser: removeUser,
+  registerUser: registerUser,
+  loginUser: loginUser
 };

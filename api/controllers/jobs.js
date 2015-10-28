@@ -1,4 +1,5 @@
 var Job = require('../models/Job');
+var User = require('../models/User');
 
 // GET
 function getAll(request, response) {
@@ -34,32 +35,49 @@ function getJob(request, response) {
   });
 }
 
-function updateJob(request, response) {
-  var id = request.params.id;
+function updateJob(req, res) {
+  var id = req.params.id;
 
   Job.findById({_id: id}, function(error, job) {
-    if(error) response.json({message: 'Could not find job b/c:' + error});
+    if(error) res.json({message: 'Could not find job b/c:' + error});
 
     // if(request.body.name) job.name = request.body.name;
     // if(request.body.start) job.start = request.body.start;
     // if(request.body.end) job.end = request.body.end;
 
     job.save(function(error) {
-      if(error) response.json({messsage: 'Could not update job b/c:' + error});
+      if(error) res.json({messsage: 'Could not update job b/c:' + error});
 
-      response.json({message: 'Job successfully updated', job: job});
+      res.json({message: 'Job successfully updated', job: job});
     });
   });
 }
 
-function removeJob(request, response) {
-  var id = request.params.id;
+function removeJob(req, res) {
+  var id = req.params.id;
 
   Job.remove({_id: id}, function(error) {
-    if(error) response.json({message: 'Could not delete job b/c:' + error});
+    if(error) res.json({message: 'Could not delete job b/c:' + error});
 
-    response.json({message: 'Job successfully deleted'});
+    res.json({message: 'Job successfully deleted'});
   });
+}
+
+function addApplicant(req, res) {
+  console.log(req.session);
+  console.log(req.session.email);
+  
+  if (req.session && req.session.email){
+    User.findOne({email: req.session.email}).then(function(user){
+      Job.findOne({id: req.body._id}).execAsync().then(function(job){
+        job.applicants.push(user._id);
+        res.json({job: job});
+      });
+    });
+  }
+  else {
+    console.log('User must be logged in!');
+  }
 }
 
 module.exports = {
@@ -67,5 +85,6 @@ module.exports = {
   createJob: createJob,
   getJob: getJob,
   updateJob: updateJob,
-  removeJob: removeJob
+  removeJob: removeJob,
+  addApplicant: addApplicant
 };

@@ -1,4 +1,7 @@
 var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
+var Promise = require('bluebird');
+var bcrypt = Promise.promisifyAll(require('../node_modules/bcrypt'));
 
 var Job = mongoose.Schema({
 	name: String,
@@ -10,11 +13,12 @@ var Job = mongoose.Schema({
 		low: Number,
 		high: Number
 	}],
-	benefits: [],
-	qualifications: [],
-	preferences: [],
+	benefits: String,
+	qualifications: String,
+	preferences: String,
 	additional: String,
-	applicant: []
+	admin: [],
+	applicants: []
 });
 
 module.exports = mongoose.model('Job', Job);

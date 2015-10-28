@@ -45,4 +45,18 @@ router.route('/users/:id')
   // DELETE remove specific user from DB
   .delete(usersController.removeUser);
 
+router.route('/register')
+
+  .post(usersController.registerUser);
+
+router.route('/login')
+
+  // .get(usersController.loginUser)
+
+  .post(usersController.loginUser);
+
+router.route('/apply')
+
+  .post(jobsController.addApplicant);
+
 module.exports = router;
