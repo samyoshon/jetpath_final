@@ -29,10 +29,7 @@ router.route('/jobs/:id')
 router.route('/users')
 
   //GET all users
-  .get(usersController.getAll)
-
-  //CREATE a new user
-  .post(usersController.createUser);
+  .get(usersController.getAll);
 
 router.route('/users/:id')
 
@@ -55,7 +52,7 @@ router.route('/login')
 
   .post(usersController.loginUser);
 
-router.route('/apply')
+router.route('/apply/:id')
 
   .post(jobsController.addApplicant);
 

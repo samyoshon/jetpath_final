@@ -10,20 +10,6 @@ function getAll(request, response) {
   });
 }
 
-// POST
-function createUser(request, response) {
-  console.log('in POST');
-  console.log('body:',request.body);
-
-  var user = new User(request.body);
-
-  user.save(function(error) {
-    if(error) response.json({messsage: 'Could not ceate user b/c:' + error});
-
-    response.json({user: user});
-  });
-}
-
 // GET
 function getUser(request, response) {
   var id = request.params.id;
@@ -63,32 +49,13 @@ function removeUser(request, response) {
   });
 }
 
-// POST
-function createJob(request, response) {
-  console.log('in POST');
-  console.log('body:',request.body);
-
-  var job = new Job(request.body);
-
-  job.save(function(error) {
-    if(error) response.json({messsage: 'Could not ceate job b/c:' + error});
-
-    response.json({job: job});
-  });
-}
-
 function registerUser(req, res) {
-
   var user = new User({email: req.body.email, password: req.body.password});
 
   user.save(function() {
         req.session.email = user.email;
   });
 }
-
-// function loginUser(request, response) {
-//   res.render('pages/login.ejs');
-// }
 
 function loginUser(req, res) {
   User.findOne({email: req.body.email})
@@ -103,7 +70,6 @@ function loginUser(req, res) {
 
 module.exports = {
   getAll: getAll,
-  createUser: createUser,
   getUser: getUser,
   updateUser: updateUser,
   removeUser: removeUser,
