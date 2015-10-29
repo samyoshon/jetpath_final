@@ -1,5 +1,7 @@
 <!-- Job Filters -->
-<div class='container jobBoard' ng-class="{'transition': jobs.isTransitioning}">
+<div class='jobBoard' ng-class="{'transition': jobs.isTransitioning}">
+
+	<img class='image-banner' src="../css/images/hero-banner.jpg"/>
 
 	<div id='jobFilters' class='row'>
 	  <div class='col-xs-4'>
@@ -21,8 +23,8 @@
 
 	<!-- Hidden Apply Buttons -->
 	  <div ng-show='showDetails' class='buttonsContainer'>
-	    <button type='button' ng-submit='jobApply()' class='btn btn-primary'>Apply</button>
-	    <button type='button' ng-submit='jobSave()' class='btn btn-default'>Save Job</button>
+	    <button type='button' ng-click='jobs.jobApply()' class='btn btn-primary'>Apply</button>
+	    <button type='button' ng-click='jobs.jobSave()' class='btn btn-default'>Save Job</button>
 	  </div>
 	<!-- End -->
 
@@ -34,23 +36,38 @@
 	</div>
 
 	<!-- Hidden Addt'l Info Section -->
-	  <div ng-show='showDetails'>
-	    <div>{{job.compensation.low}}</div>
-	    <div>{{job.compensation.high}}</div>
+	  <div ng-show='showDetails' ng-click='showDetails = !showDetails'>
+	  	<div class='jobDetails'>
+		    <div>{{job.compensation.low}}</div>
+		    <div>{{job.compensation.high}}</div>
+		    <h1>hello</h1>
+		</div>
 
-	    <ul>
-	      <li ng-repeat='benefit in job.benefits'>{{benefit}}</li>
-	    </ul>
+		<div class='jobDetails'>
+		    <ul>
+		      <li ng-repeat='benefit in job.benefits'>{{benefit}}</li>
+		    </ul>
+		    <h1>hello</h1>
+		</div>
 
-	    <ul>
-	      <li ng-repeat='qualification in job.qualifications'>{{qualification}}</li>
-	    </ul>
+		<div class='jobDetails'>
+		    <ul>
+		      <li ng-repeat='qualification in job.qualifications'>{{qualification}}</li>
+		    </ul>
+		    <h1>hello</h1>
+		</div>
 
-	    <ul>
-	      <li ng-repeat='preference in job.preferences'>{{preference}}</li>
-	    </ul>
+		<div class='jobDetails'>
+		    <ul>
+		      <li ng-repeat='preference in job.preferences'>{{preference}}</li>
+		    </ul>
+		    <h1>hello</h1>
+		</div>
 
-	    <div>{{job.additional}}</div>
+		<div class='jobDetails'>
+	    	<div>{{job.additional}}</div>
+	    	<h1>hello</h1>
+	    </div>
 
 	  </div>
 	<!-- End -->

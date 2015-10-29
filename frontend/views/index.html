@@ -18,55 +18,101 @@
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 </head>
 
+
+<!-- Set up -->
 <body ng-app='jetpathApp'>
 
   <section ng-controller='JobsController as jobs'>
+  <section ng-controller='UsersController as users'>
 
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" ui-sref="home" ui-sref-active="active" ng-click="jobs.transition()">Jetpath</a>
-    </div>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" ui-sref="home" ui-sref-active="active" ng-click="jobs.transition()">Jetpath</a>
+      </div>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li><a ui-sref="jobs" ui-sref-active="active" ng-click="jobs.transition()">Jobs</a></li>
-        <li><a ui-sref="saved" ui-sref-active="active" ng-click="jobs.transition()">Saved Jobs</a></li>
-        <li><a ui-sref="new" ui-sref-active="active" ng-click="jobs.transition()">Post Jobs</a></li>
-        <li><a ui-sref="candidates" ui-sref-active="active" ng-click="jobs.transition()">See Candidates</a></li>
-        <li><a ui-sref="applicants" ui-sref-active="active" ng-click="jobs.transition()">Applicant Form</a></li>
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li><a ui-sref="jobs" ui-sref-active="active" ng-click="jobs.transition()">Jobs</a></li>
+          <li><a ui-sref="saved" ui-sref-active="active" ng-click="jobs.transition()">Saved Jobs</a></li>
+          <li><a ui-sref="new" ui-sref-active="active" ng-click="jobs.transition()">Post Jobs</a></li>
+          <li><a ui-sref="candidates" ui-sref-active="active" ng-click="jobs.transition()">See Candidates</a></li>
+          <li><a ui-sref="applicants" ui-sref-active="active" ng-click="jobs.transition()">Applicant Form</a></li>
+        </ul>
+
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href='#' data-toggle="modal" data-target="#myModal">Login</a></li>
+          <!-- <li dropdown>
+            <a href="#" dropdown-toggle>Add<span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a ui-sref="candidates" ui-sref-active="active" ng-click="jobs.transition()">See Candidates</a></li>
+              <li class="divider" role="presentation"></li>
+              <li><a ui-sref="candidates" ui-sref-active="active" ng-click="jobs.transition()">See Candidates</a></li>
+            </ul>
+          </li> -->
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+      
+      <!-- Nav tabs -->
+      <ul id='myTabs' class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active"><a href="#login_tab" aria-controls="login" role="tab" data-toggle="tab">Login</a></li>
+        <li role="presentation"><a href="#register_tab" aria-controls="register" role="tab" data-toggle="tab">New User</a></li>
       </ul>
 
-      <ul class="nav navbar-nav navbar-right">
-        <li dropdown>
-          <a href="#" dropdown-toggle>Add<span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a ui-sref="candidates" ui-sref-active="active" ng-click="jobs.transition()">See Candidates</a></li>
-            <li class="divider" role="presentation"></li>
-            <li><a ui-sref="candidates" ui-sref-active="active" ng-click="jobs.transition()">See Candidates</a></li>
-          </ul>
-        </li>
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
+      <!-- Nav content -->
+      <div class="tab-content" ng-controller="UsersController as users">
+        <!-- Login -->
+        <div role="tabpanel" class="tab-pane active" id="login_tab">
+          <form  ng-submit="users.loginUser()">
+            <input class='form-control' ng-model='users.loginUserInfo.email' placeholder='Email'>
+            <input class='form-control' ng-model='users.loginUserInfo.password' placeholder='Password'>
+            <input type='submit' class='btn btn-primary' value='Login'>
+          </form>
+        </div>
 
-    <div class='container'>
+        <!-- Register -->
+        <div role="tabpanel" class="tab-pane" id="register_tab">
+          <form  ng-submit="users.registerUser()">
+            <input class='form-control' ng-model='users.registerUserInfo.firstname' placeholder='First Name'>
+            <input class='form-control' ng-model='users.registerUserInfo.lastname' placeholder='Last Name'>
+            <input class='form-control' ng-model='users.registerUserInfo.email' placeholder='Email'>
+            <input class='form-control' ng-model='users.registerUserInfo.password' placeholder='Password'>
+            <input type='submit' class='btn btn-primary' value='Register'>
+          </form>
+        </div>
 
-    <!-- Views go in here -->
-        <div ui-view></div>
-    <!-- Views go in here -->
+      </div>
+
+      </div>
 
     </div>
+  </div>
+</div>
 
+  <!-- Views go in here -->
+  <div ui-view></div>
+  <!-- Views go in here -->
+  </section>
   </section>
 
 </body>

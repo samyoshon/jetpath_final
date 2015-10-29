@@ -6,12 +6,16 @@
 	background-size: cover;
 	position: relative;
 	width: 100%;
+	text-align: center;
 }
 
 .hero-text {
 	position: absolute;
-	color: red;
+	color: white;
+	font-size: 65px;
 	z-index: 1;
 	top: 0;
 	left: 0;
+	margin-left: auto;
+	margin-right: auto;
 }

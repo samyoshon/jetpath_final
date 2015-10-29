@@ -9,6 +9,10 @@ function MainRouter($stateProvider, $urlRouterProvider) {
 	$urlRouterProvider.otherwise("/");
 
 		$stateProvider
+		.state('home', {
+			url: '/',
+			templateUrl: 'home.html'
+		})
 		.state('jobs', {
 			url: '/jobs',
 			templateUrl: 'job.html',
@@ -18,10 +22,6 @@ function MainRouter($stateProvider, $urlRouterProvider) {
 			url: '/jobs/saved',
 			templateUrl: 'saved.html',
 			// controller: "jobsController"
-		})
-		.state('home', {
-			url: '/',
-			templateUrl: 'home.html'
 		})
 		.state('new', {
 			url: '/new',

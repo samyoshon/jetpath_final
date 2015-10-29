@@ -11,6 +11,8 @@ function JobsController ($http, jobsFactory, $timeout){
 
 	self.getJobs = getJobs;
 	self.postJob = postJob;
+	self.jobApply = jobApply;
+
 	getJobs();
 
 	//SET UP $HTTP REQUEST TO GET ALL JOBS //
@@ -37,14 +39,6 @@ function JobsController ($http, jobsFactory, $timeout){
 		}
 		// END //
 
-	function jobApply() {
-		$http
-			.patch('http://localhost:3000/jobs')
-			.then(function(response){
-				self.all = response.data.jobs;
-		});
-	}
-
 	//SET UP TO TRANSITION BETWEEN PAGES //
 	self.transition = function () {
 		self.isTransitioning = true;
@@ -62,7 +56,19 @@ function JobsController ($http, jobsFactory, $timeout){
 			getJobs();
 		});
 		self.newJob = {};
-	};
+	}
+	// END //
+
+	//USER APPLIES TO JOB //
+	function jobApply(job) {
+		// var url = 'http://localhost:3000/apply/' + job._id;
+		var curr_user = JSON.parse(window.localStorage.getItem("curr_user"));
+		$http
+			.post('http://localhost:3000/apply', {job: job, user: curr_user})
+			.then(function(response){
+				console.log(response);
+		});
+	}
 	// END //
 
 }

@@ -38,3 +38,15 @@
 	border-bottom: 2px dotted gray;
 	color: red;
 }
+
+.textFieldEdit {
+	width: 100%;
+	padding: 10px;
+	border: 1px solid black;
+	background: none;
+}
+
+.editForm {
+	color: red;
+	border-bottom: 1px dotted red;
+}
