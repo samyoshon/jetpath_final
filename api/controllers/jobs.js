@@ -64,15 +64,15 @@ function removeJob(req, res) {
 }
 
 function addApplicant(req, res) {
-  console.log(req.session);
-  console.log(req.session.email);
-  
-  if (req.session && req.session.email){
-    User.findOne({email: req.session.email}).then(function(user){
-      Job.findOne({id: req.body._id}).execAsync().then(function(job){
-        job.applicants.push(user._id);
-        res.json({job: job});
-      });
+  if (req.body.user && req.body){
+    User.findOne({email: req.body.user.email}).then(function(user){
+      Job.findByIdAndUpdate(req.body.job._id, {$set: {'applicants': user._id}},
+        {safe: true, upsert: true, new : true},
+        function(err, job) {
+            console.log(job);
+            res.json({job: job});
+        }
+      );
     });
   }
   else {

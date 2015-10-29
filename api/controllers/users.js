@@ -95,6 +95,8 @@ function loginUser(req, res) {
     .then(function(user) {
        user.comparePasswordAsync(req.body.password).then(function(isMatch) {
           req.session.email = user.email;
+          console.log('login success: ' + req.session.email);
+          res.json({user: user});
        });
     });
 }
