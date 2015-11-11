@@ -16,8 +16,8 @@ var userSchema = mongoose.Schema({
 	resume: String,
 	photo: String,
 	skypeid: String,
-	posted_jobs: [],
-	saved_jobs: []
+	postedjobs: [],
+	savedjobs: []
 });
 
 userSchema.pre('save',function(next){

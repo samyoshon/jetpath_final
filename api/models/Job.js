@@ -17,7 +17,7 @@ var Job = mongoose.Schema({
 	qualifications: String,
 	preferences: String,
 	additional: String,
-	admin: [],
+	admin: String,
 	applicants: []
 });
 
