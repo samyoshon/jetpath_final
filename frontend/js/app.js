@@ -18,23 +18,27 @@ function MainRouter($stateProvider, $urlRouterProvider) {
 			templateUrl: 'job.html',
 			// controller: "jobsController"
 		})
-		.state('saved', {
-			url: '/jobs/saved',
-			templateUrl: 'saved.html',
-			// controller: "jobsController"
-		})
+		// .state('saved', {
+		// 	url: '/jobs/saved',
+		// 	templateUrl: 'saved.html',
+		// 	// controller: "jobsController"
+		// })
 		.state('new', {
 			url: '/new',
 			templateUrl: 'new.html',
 			// controller: "jobsController"
 		})
-		.state('candidates', {
-			url: '/candidates',
-			templateUrl: 'candidates.html',
-			// controller: "jobsController"
-		})
-		.state('applicants', {
-			url: '/applicants',
-			templateUrl: 'applicants.html'
+		// .state('candidates', {
+		// 	url: '/candidates',
+		// 	templateUrl: 'candidates.html',
+		// 	// controller: "jobsController"
+		// })
+		// .state('applicants', {
+		// 	url: '/applicants',
+		// 	templateUrl: 'applicants.html'
+		// })
+		.state('login', {
+			url: '/login',
+			templateUrl: 'login.html'
 		});
 }

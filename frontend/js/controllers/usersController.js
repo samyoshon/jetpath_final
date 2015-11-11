@@ -52,7 +52,7 @@ function UsersController ($http, jobsFactory, $timeout, $window){
 	function loginUser() {
 		$http.post('http://localhost:3000/login', self.loginUserInfo)
 			.then(function(response){
-				var curr_user = response.data.user;
+				curr_user = response.data.user;
 			window.localStorage.setItem('curr_user', JSON.stringify(curr_user));
 			//var curr_user = JSON.parse(window.localStorage.getItem("curr_user"));
 			console.log('curr_user ' + curr_user);
