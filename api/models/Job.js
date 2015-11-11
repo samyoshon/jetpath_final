@@ -7,18 +7,16 @@ var Job = mongoose.Schema({
 	name: String,
 	title: String,
 	description: String,
-	country: String,
-	address: String,
+	country: ['South Korea', 'China', 'Thailand', 'Chile', 'Vietnam'],
+	city: String,
 	compensation: [{
-		low: Number,
-		high: Number
+		low: String,
+		high: String
 	}],
 	benefits: String,
 	qualifications: String,
 	preferences: String,
-	additional: String,
-	admin: String,
-	applicants: []
+	additional: String
 });
 
 module.exports = mongoose.model('Job', Job);
