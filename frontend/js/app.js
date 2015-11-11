@@ -11,11 +11,11 @@ function MainRouter($stateProvider, $urlRouterProvider) {
 		$stateProvider
 		.state('home', {
 			url: '/',
-			templateUrl: 'home.html'
+			templateUrl: 'views/home.html'
 		})
 		.state('jobs', {
 			url: '/jobs',
-			templateUrl: 'job.html',
+			templateUrl: 'views/job.html',
 			// controller: "jobsController"
 		})
 		// .state('saved', {
@@ -25,7 +25,7 @@ function MainRouter($stateProvider, $urlRouterProvider) {
 		// })
 		.state('new', {
 			url: '/new',
-			templateUrl: 'new.html',
+			templateUrl: 'views/new.html',
 			// controller: "jobsController"
 		})
 		// .state('candidates', {
@@ -39,6 +39,6 @@ function MainRouter($stateProvider, $urlRouterProvider) {
 		// })
 		.state('login', {
 			url: '/login',
-			templateUrl: 'login.html'
+			templateUrl: 'views/login.html'
 		});
 }
