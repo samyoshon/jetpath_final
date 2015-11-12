@@ -14,7 +14,7 @@
   <link rel="stylesheet" href="css/indexPage.css">
   <link rel="stylesheet" href="css/jobsPage.css">
   <link rel="stylesheet" href="css/homePage.css">
-  <link rel="stylesheet" href="css/loginPage.css">
+  <link rel="stylesheet" href="css/newPage.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -25,7 +25,6 @@
 <body ng-app='jetpathApp'>
 
   <section ng-controller='JobsController as jobs'>
-  <section ng-controller='UsersController as users'>
 
   <nav class="navbar navbar-default">
     <div class="container-fluid">
@@ -38,7 +37,8 @@
       <div>
         <ul class="nav navbar-nav navbar-right">
           <li><button class="btn btn-primary" ui-sref="jobs" ui-sref-active="active" ng-click="jobs.transition()" id="searchButton">Search Jobs</button></li>
-          <li><button class="btn btn-danger" ui-sref="new" ui-sref-active="active" ng-click="jobs.transition()" id="postButton">Post Jobs</button></li>
+          <li><button class="btn btn-danger" id="postButton">Post Jobs</button></li><!-- 
+          <li><button class="btn btn-danger" ui-sref="new" ui-sref-active="active" ng-click="jobs.transition()" id="postButton">Post Jobs</button></li> -->
         </ul>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
@@ -47,7 +47,6 @@
   <!-- Views go in here -->
   <div ui-view></div>
   <!-- Views go in here -->
-  </section>
   </section>
 
 
